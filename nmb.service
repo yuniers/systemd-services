@@ -1,0 +1,11 @@
+[Unit]
+Description=Samba nmbd daemon
+After=syslog.target
+
+[Service]
+EnvironmentFile=/etc/sysconfig/samba
+Type=forking
+ExecStart=/usr/sbin/nmbd $NMBDOPTIONS
+
+[Install]
+WantedBy=multi-user.target

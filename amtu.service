@@ -1,0 +1,10 @@
+[Unit]
+Description=Abstract Machine Tests
+After=syslog.target
+
+[Service]
+EnvironmentFile=/etc/sysconfig/amtu
+ExecStart=/usr/sbin/amtu $EXTRAOPTIONS
+
+[Install]
+WantedBy=multi-user.target

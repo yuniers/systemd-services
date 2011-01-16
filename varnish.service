@@ -1,0 +1,13 @@
+[Unit]
+Description=Varnish a high-perfomance HTTP accelerator
+After=syslog.target
+
+[Service]
+EnvironmentFile=/etc/sysconfig/varnish
+LimitNOFILE=131072
+LimitMEMLOCK=82000
+Type=forking
+ExecStart=/usr/sbin/varnishd $DAEMON_OPTS
+
+[Install]
+WantedBy=multi-user.target

@@ -1,0 +1,11 @@
+[Unit]
+Description=Ajaxterm a web-based terminal
+After=syslog.target
+
+[Service]
+EnvironmentFile=/etc/sysconfig/ajaxterm
+User=ajaxterm
+ExecStart=/usr/bin/ajaxterm $OPTIONS
+
+[Install]
+WantedBy=multi-user.target

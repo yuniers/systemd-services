@@ -1,0 +1,11 @@
+[Unit]
+Description=Varnish logging daemon
+After=syslog.target
+
+[Service]
+EnvironmentFile=/etc/sysconfig/varnishlog
+Type=forking
+ExecStart=/usr/bin/varnishlog -a -D $DAEMON_OPTS
+
+[Install]
+WantedBy=multi-user.target

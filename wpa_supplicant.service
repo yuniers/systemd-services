@@ -1,0 +1,11 @@
+[Unit]
+Description=wpa_supplicant tool for connecting to wireless networks
+After=syslog.target
+
+[Service]
+EnvironmentFile=/etc/sysconfig/wpa_supplicant
+Type=forking
+ExecStart=/usr/sbin/wpa_supplicant -c /etc/wpa_supplicant/wpa_supplicant.conf $INTERFACES $DRIVERS -B $OTHER_ARGS
+
+[Install]
+WantedBy=multi-user.target

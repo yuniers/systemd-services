@@ -1,0 +1,11 @@
+[Unit]
+Description=coarse locking daemon
+After=syslog.target
+
+[Service]
+EnvironmentFile=/etc/sysconfig/cld
+Type=forking
+ExecStart=/usr/sbin/cld $OPTS
+
+[Install]
+WantedBy=multi-user.target

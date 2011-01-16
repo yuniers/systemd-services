@@ -1,0 +1,11 @@
+[Unit]
+Description=Samba winbind daemon
+After=syslog.target
+
+[Service]
+EnvironmentFile=/etc/sysconfig/samba
+Type=forking
+ExecStart=/usr/sbin/winbindd "$WINBINDOPTIONS"
+
+[Install]
+WantedBy=multi-user.target

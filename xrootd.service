@@ -1,0 +1,12 @@
+[Unit]
+Description=XROOTD daemon
+After=syslog.target
+
+[Service]
+EnvironmentFile=/etc/sysconfig/xrootd
+User=xrootd
+Type=forking
+ExecStart=/usr/bin/xrootd -b
+
+[Install]
+WantedBy=multi-user.target

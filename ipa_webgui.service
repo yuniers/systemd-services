@@ -1,0 +1,10 @@
+[Unit]
+Description=IPA Web User Interface
+After=syslog.target network.target
+
+[Service]
+Type=forking
+ExecStart=/usr/sbin/ipa_webgui
+
+[Install]
+WantedBy=multi-user.target

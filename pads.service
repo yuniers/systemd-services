@@ -1,0 +1,11 @@
+[Unit]
+Description=Passive Asset Detection System
+After=syslog.target network.target
+
+[Service]
+EnvironmentFile=/etc/sysconfig/pads
+Type=forking
+ExecStart=/usr/bin/pads -D -c $CONFIG_FILE $EXTRA_OPTIONS
+
+[Install]
+WantedBy=multi-user.target

@@ -1,0 +1,11 @@
+[Unit]
+Description=Varnish nsca logging daemon
+After=syslog.target
+
+[Service]
+EnvironmentFile=/etc/sysconfig/varnishncsa
+Type=forking
+ExecStart=/usr/bin/varnishncsa -a -D $DAEMON_OPTS
+
+[Install]
+WantedBy=multi-user.target

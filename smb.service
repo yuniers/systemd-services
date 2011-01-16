@@ -1,0 +1,11 @@
+[Unit]
+Description=Samba smbd daemon
+After=syslog.target
+
+[Service]
+EnvironmentFile=/etc/sysconfig/samba
+Type=forking
+ExecStart=/usr/sbin/smbd $SMBDOPTIONS
+
+[Install]
+WantedBy=multi-user.target

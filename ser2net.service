@@ -1,0 +1,10 @@
+[Unit]
+Description=ser2net
+After=syslog.target
+
+[Service]
+Type=forking
+ExecStart=/usr/sbin/ser2net
+
+[Install]
+WantedBy=multi-user.target

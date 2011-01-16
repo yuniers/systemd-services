@@ -1,0 +1,11 @@
+[Unit]
+Description=Gadget XMPP server component for tracking people and activities
+After=syslog.target network.target
+
+[Service]
+Environment=TAC=/usr/share/gadget/gadget.tac
+Type=forking
+ExecStart=/usr/bin/twistd -oy $TAC
+
+[Install]
+WantedBy=multi-user.target

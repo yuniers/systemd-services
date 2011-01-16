@@ -1,0 +1,12 @@
+[Unit]
+Description=mailgraph mail log file analyzer
+After=syslog.target
+
+[Service]
+EnvironmentFile=/etc/sysconfig/mailgraph
+Nice=19
+Type=forking
+ExecStart=/usr/sbin/mailgraph -d -l $MAILLOG --daemon-rrd=/var/lib/mailgraph $OPTIONS
+
+[Install]
+WantedBy=multi-user.target

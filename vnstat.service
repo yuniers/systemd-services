@@ -1,0 +1,9 @@
+[Unit]
+Description=vnstat lightweight network traffic monitor
+After=syslog.target
+
+[Service]
+ExecStart=/usr/sbin/vnstatd -n
+
+[Install]
+WantedBy=multi-user.target

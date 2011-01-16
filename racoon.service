@@ -1,0 +1,10 @@
+[Unit]
+Description=racoon IKEv1 key management daemon
+After=syslog.target network.target
+
+[Service]
+Type=forking
+ExecStart=/usr/sbin/racoon
+
+[Install]
+WantedBy=multi-user.target

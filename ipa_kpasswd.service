@@ -1,0 +1,10 @@
+[Unit]
+Description=IPA Kpasswd daemon
+After=syslog.target network.target
+
+[Service]
+Type=forking
+ExecStart=/usr/sbin/ipa_kpasswd
+
+[Install]
+WantedBy=multi-user.target

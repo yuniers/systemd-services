@@ -1,0 +1,11 @@
+[Unit]
+Description=matahari daemon
+After=syslog.target
+
+[Service]
+EnvironmentFile=/etc/sysconfig/matahari
+Type=forking
+ExecStart=/usr/sbin/matahari --daemon $MATAHARI_ARGS
+
+[Install]
+WantedBy=multi-user.target

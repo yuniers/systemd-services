@@ -1,0 +1,14 @@
+[Unit]
+Description=The Shoreline (shorewall-lite) Firewall
+After=syslog.target
+
+[Service]
+EnvironmentFile=/etc/sysconfig/shorewall-lite
+Type=oneshot
+ExecStart=/sbin/shorewall-lite $OPTIONS start
+ExecReload=/sbin/shorewall-lite $OPTIONS restart
+ExecStop=/sbin/shorewall-lite $OPTIONS stop
+RemainAfterExit=yes
+
+[Install]
+WantedBy=multi-user.target
