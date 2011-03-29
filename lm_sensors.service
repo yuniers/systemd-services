@@ -1,0 +1,13 @@
+[Unit]
+Description=lm_sensors for monitoring motherboard sensor values
+After=syslog.target
+
+[Service]
+EnvironmentFile=/etc/sysconfig/lm_sensors
+Type=oneshot
+ExecStart=/bin/bash -c "for module in $BUS_MODULES $HWMON_MODULES; do /sbin/modprobe $module >/dev/null 2>&1; done"
+ExecStart=/usr/bin/sensors -s
+#ExecStop=/bin/bash -c "for module in $HWMON_MODULES $BUS_MODULES; do /sbin/modprobe -r $module >/dev/null 2>&1; done"
+
+[Install]
+WantedBy=multi-user.target
