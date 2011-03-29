@@ -5,9 +5,10 @@ After=syslog.target
 [Service]
 EnvironmentFile=/etc/sysconfig/lm_sensors
 Type=oneshot
-ExecStart=/bin/bash -c "for module in $BUS_MODULES $HWMON_MODULES; do /sbin/modprobe $module >/dev/null 2>&1; done"
+RemainAfterExit=yes
+ExecStart=-/sbin/modprobe -qab $BUS_MODULES $HWMON_MODULES
 ExecStart=/usr/bin/sensors -s
-#ExecStop=/bin/bash -c "for module in $HWMON_MODULES $BUS_MODULES; do /sbin/modprobe -r $module >/dev/null 2>&1; done"
+ExecStop=-/sbin/modprobe -qabr $BUS_MODULES $HWMON_MODULES
 
 [Install]
 WantedBy=multi-user.target
