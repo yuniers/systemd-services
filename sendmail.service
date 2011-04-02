@@ -1,0 +1,12 @@
+[Unit]
+Description=Sendmail Mail Transport Agent
+After=syslog.target network.target
+
+[Service]
+Environment=QUEUE=1h
+EnvironmentFile=/etc/sysconfig/sendmail
+Type=forking
+ExecStart=/usr/sbin/sendmail -q $QUEUE $SENDMAIL_OPTARG
+
+[Install]
+WantedBy=multi-user.target
