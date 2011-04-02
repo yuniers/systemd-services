@@ -6,7 +6,8 @@ After=syslog.target network.target
 EnvironmentFile=/etc/sysconfig/httpd
 Type=forking
 ExecStart=/usr/sbin/httpd $OPTIONS
-ExecStop=/usr/sbin/apachectl -k stop
+ExecReload=/usr/sbin/httpd -k restart
+ExecStop=/usr/sbin/httpd -k stop
 
 [Install]
 WantedBy=multi-user.target
