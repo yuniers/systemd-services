@@ -1,0 +1,10 @@
+[Unit]
+Description=OpenSSH server daemon
+After=syslog.target network.target
+
+[Service]
+Type=forking
+ExecStart=/usr/sbin/sshd
+
+[Install]
+WantedBy=multi-user.target
