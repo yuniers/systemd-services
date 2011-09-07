@@ -1,0 +1,13 @@
+[Unit]
+Description=transmission-daemon
+After=syslog.target network.target
+
+[Service]
+Environment=DAEMON_ARGS="-T --blocklist -g /var/lib/transmission/.config/transmission"
+EnvironmentFile=/etc/sysconfig/transmission-daemon
+Type=forking
+User=transmission
+ExecStart=/usr/bin/transmission-daemon $DAEMON_ARGS
+
+[Install]
+WantedBy=multi-user.target
