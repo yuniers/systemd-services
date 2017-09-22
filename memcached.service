@@ -5,7 +5,7 @@ After=syslog.target network.target
 [Service]
 EnvironmentFile=/etc/sysconfig/memcached
 Type=forking
-ExecStart=/usr/bin/memcached -d -p $PORT -m $CACHESIZE -c $MAXCONN -u $USER $OPTIONS
+ExecStart=/usr/bin/memcached -d -l 127.0.0.1 -p $PORT -m $CACHESIZE -c $MAXCONN -u $USER $OPTIONS
 
 [Install]
 WantedBy=multi-user.target
